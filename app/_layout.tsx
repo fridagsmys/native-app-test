@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     right: 20,
     backgroundColor: "white",
     borderRadius: 15,
-    height: 90,
+    height: 80,
 
     shadowColor: "#7F5DF0",
     shadowOffset: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 35,
-    backgroundColor: "#e32f45",
+    backgroundColor: "#90A955",
     justifyContent: "center",
     alignItems: "center",
 
@@ -110,7 +110,7 @@ export default function RootLayout() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: "#e32f45",
+        tabBarActiveTintColor: "#90A955",
         tabBarInactiveTintColor: "#748c94",
       })}
     >
