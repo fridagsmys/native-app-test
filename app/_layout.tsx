@@ -8,11 +8,11 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import Index from "./index";
+import Home from "./home";
 import Settings from "./settings";
 import Discover from "./discover";
-import Notifications from "./notifications";
-import Add from "./add";
+import Info from "./info";
+import Location from "./location";
 
 const styles = StyleSheet.create({
   tabBar: {
@@ -65,64 +65,101 @@ const CustomTabBarBtn = (props: TouchableOpacityProps) => {
     <TouchableOpacity
       {...props}
       style={styles.touchableOpacityStyle}
-      onPress={() => navigation.navigate("add")}
+      onPress={() => navigation.navigate("loaction")}
     >
       <View style={styles.addBtn}>
-        <Ionicons name="add" size={40} color="white" />
+        <Ionicons name={"location"} size={40} color="white" />
       </View>
     </TouchableOpacity>
   );
 };
-
-type IconName =
-  | "home"
-  | "home-outline"
-  | "settings"
-  | "settings-outline"
-  | "eye"
-  | "eye-outline"
-  | "notifications"
-  | "notifications-outline"
-  | "add"
-  | "add-outline";
 
 export default function RootLayout() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarShowLabel: false,
-        tabBarStyle: styles.tabBar,
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName: IconName;
-
-          if (route.name === "index") {
-            iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "settings") {
-            iconName = focused ? "settings" : "settings-outline";
-          } else if (route.name === "discover") {
-            iconName = focused ? "eye" : "eye-outline";
-          } else if (route.name === "notifications") {
-            iconName = focused ? "notifications" : "notifications-outline";
-          } else {
-            iconName = "home";
-          }
-
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
         tabBarActiveTintColor: "#90A955",
         tabBarInactiveTintColor: "#748c94",
       })}
     >
-      <Tab.Screen name="index" component={Index} />
-      <Tab.Screen name="discover" component={Discover} />
       <Tab.Screen
-        name="add"
-        component={Add}
-        options={{ tabBarButton: (props) => <CustomTabBarBtn {...props} /> }}
+        name="home"
+        options={{
+          tabBarShowLabel: false,
+          tabBarStyle: styles.tabBar,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "home" : "home-outline"}
+                size={28}
+                color={color}
+              />
+            );
+          },
+        }}
+        component={Home}
       />
-      <Tab.Screen name="notifications" component={Notifications} />
-      <Tab.Screen name="settings" component={Settings} />
+      <Tab.Screen
+        name="discover"
+        options={{
+          tabBarShowLabel: false,
+          tabBarStyle: styles.tabBar,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "leaf" : "leaf-outline"}
+                size={28}
+                color={color}
+              />
+            );
+          },
+        }}
+        component={Discover}
+      />
+      <Tab.Screen
+        name="location"
+        component={Location}
+        options={{
+          tabBarShowLabel: false,
+          tabBarStyle: styles.tabBar,
+          tabBarButton: (props) => <CustomTabBarBtn {...props} />,
+        }}
+      />
+      <Tab.Screen
+        name="info"
+        options={{
+          tabBarShowLabel: false,
+          tabBarStyle: styles.tabBar,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "help-circle" : "help-circle-outline"}
+                size={28}
+                color={color}
+              />
+            );
+          },
+        }}
+        component={Info}
+      />
+      <Tab.Screen
+        name="settings"
+        options={{
+          tabBarShowLabel: false,
+          tabBarStyle: styles.tabBar,
+          tabBarIcon: ({ focused, color, size }) => {
+            return (
+              <Ionicons
+                name={focused ? "settings" : "settings-outline"}
+                size={28}
+                color={color}
+              />
+            );
+          },
+        }}
+        component={Settings}
+      />
     </Tab.Navigator>
   );
 }

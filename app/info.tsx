@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Notifications() {
+export default function Info() {
   return (
     <View style={styles.container}>
-      <Text>Edit app/notifications.tsx to edit this screen.</Text>
+      <Text>Edit app/info.tsx to edit this screen.</Text>
     </View>
   );
 }
