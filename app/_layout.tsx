@@ -65,7 +65,7 @@ const CustomTabBarBtn = (props: TouchableOpacityProps) => {
     <TouchableOpacity
       {...props}
       style={styles.touchableOpacityStyle}
-      onPress={() => navigation.navigate("loaction")}
+      onPress={() => navigation.navigate("location")}
     >
       <View style={styles.addBtn}>
         <Ionicons name={"location"} size={40} color="white" />
