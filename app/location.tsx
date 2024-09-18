@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Settings() {
+export default function Location() {
   return (
     <View style={styles.container}>
-      <Text>Edit app/settings.tsx to edit this screen.</Text>
+      <Text>Edit app/location.tsx to edit this screen.</Text>
     </View>
   );
 }
